@@ -1,0 +1,17 @@
+certifi==2018.8.24
+chardet==3.0.4
+defusedxml==0.5.0
+Django==1.9.5
+gunicorn==19.9.0
+idna==2.7
+oauthlib==2.1.0
+PyJWT==1.6.4
+python-social-auth==0.2.14
+python3-openid==3.1.0
+requests==2.19.1
+requests-oauthlib==1.0.0
+six==1.11.0
+urllib3==1.23
+whitenoise==4.0
+dj-database-url==0.4.0
+pyscopg2==2.6.1
