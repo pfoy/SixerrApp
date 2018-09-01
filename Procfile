@@ -1,1 +1,1 @@
-web: gunicorn sixerr.wsgii --log-file - 
+web: gunicorn sixerr.wsgii --log-file- 
