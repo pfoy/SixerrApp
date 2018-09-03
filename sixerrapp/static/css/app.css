@@ -17,3 +17,20 @@ body {
 #footer {
   padding: 20px 0;
 }
+
+a {
+  color: #323232
+}
+
+a:hover {
+  color: #0bb536;
+}
+
+#body .banner {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.green {
+  color: #0bb536;
+}
