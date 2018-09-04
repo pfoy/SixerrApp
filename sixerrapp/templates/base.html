@@ -1,3 +1,4 @@
+
 {% load staticfiles %}
 <!DOCTYPE html>
 <html>
@@ -12,6 +13,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
 
+
   </head>
   <body>
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -20,9 +22,14 @@
           <div class="navbar-header">
             <a class="navbar-brand" href="/"><img src="{% static 'img/logo.png' %}" height="23"></a>
           </div>
-          <form class="navbar-form navbar-left" role="search">
+          <form class="navbar-form navbar-left" role="search" method="GET" action="/search/">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Find services">
+              <div class="input-group">
+                <input type="text" name="title" class="form-control" placeholder="Find services">
+                <span class="input-group-btn">
+                  <button class="btn btn-success">Find</button>
+                </span>
+              </div>
             </div>
           </form>
           <ul class="nav navbar-nav navbar-right">
@@ -30,16 +37,24 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                   role="button" aria-haspopup="true" aria-expanded="fase">
-                  <img src="{% static 'img/avatar.png' %}" class="img-circle" height="22" width="22">
+                  <img src="{% if user.profile %} {{ user.profile.avatar }} {% else %} {% static 'img/avatar.png' %} {% endif %}" class="img-circle" height="22" width="22">&nbsp;
                   {{ user.get_full_name|default:user.username }} <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
+                  <li><a href="{% url 'create_gig' %}">Create a gig</a></li>
+                  <li><a href="{% url 'my_gigs' %}">My Gigs</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="{% url 'my_offers' %}">My Offers</a></li>
+                  <li><a href="{% url 'my_purchases' %}">My Purchases</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="{% url 'profile' user.username %}">My Profile</a></li>
+                  <li role="separator" class="divider"></li>
                   <li><a href="{% url 'auth:logout' %}?next={{request.path}}">Logout</a></li>
                 </ul>
               </li>
             {% else %}
               <li>
-                <a href="{% url 'social:begin' 'facebook' %}?next={{request.path}}">Login</a>
+                <a href="{% url 'social:begin' 'facebook' %}?next={{request.path}}">Login with Facebook</a>
               </li>
             {% endif %}
           </ul>
@@ -48,11 +63,11 @@
       <div id="category">
         <div class="container">
           <ul class="nav navbar-nav">
-            <li><a href="#">Graphics & Design</a></li>
-            <li><a href="#">Digital Marketing</a></li>
-            <li><a href="#">Video & Animation</a></li>
-            <li><a href="#">Music & Audio</a></li>
-            <li><a href="#">Programming & Tech</a></li>
+            <li><a href="/category/graphics-design">Graphic Design</a></li>
+            <li><a href="/category/digital-marketing">Digital Marketing</a></li>
+            <li><a href="/category/video-animation">Video & Animation</a></li>
+            <li><a href="/category/music-audio">Music & Audio</a></li>
+            <li><a href="/category/programming-tech">Programming & Tech</a></li>
           </ul>
         </div>
       </div>
@@ -63,12 +78,10 @@
         {% endblock %}
       </div>
     </div>
+
     <footer id="footer">
       <div class="container">
-        <span>Sixerr App &copy; 2018</span>
+        <span>Sixerr App &copy; 2016</span>
       </div>
     </footer>
-    <div>
-    </div>
   </body>
-</html>
