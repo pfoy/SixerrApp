@@ -153,9 +153,9 @@ SOCIAL_AUTH_PIPELINE = (
 )
 
 # replace database setting to use postgresql on Heroku
-import dj_database_url
-db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
+# import dj_database_url
+# db_from_env = dj_database_url.config()
+# DATABASES['default'].update(db_from_env)
 
 # Setup upload directory for Gig model
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
