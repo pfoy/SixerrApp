@@ -17,3 +17,4 @@ whitenoise==4.0
 dj-database-url==0.4.0
 psycopg2==2.7
 braintree==3.48.0
+django-heroku==0.3.1
