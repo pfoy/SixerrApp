@@ -81,12 +81,12 @@ WSGI_APPLICATION = 'sixerr.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 
 # Password validation
@@ -155,10 +155,10 @@ SOCIAL_AUTH_PIPELINE = (
 
 
 
-# replace database setting to use postgresql on Heroku
-import dj_database_url
-db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
+# # replace database setting to use postgresql on Heroku
+# import dj_database_url
+# db_from_env = dj_database_url.config()
+# DATABASES['default'].update(db_from_env)
 
 # Setup upload directory for Gig model
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
